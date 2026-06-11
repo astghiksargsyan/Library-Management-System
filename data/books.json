@@ -1,0 +1,30 @@
+[
+    {
+        "title": "1984",
+        "author": "Orwel",
+        "isbn": "99",
+        "status": "Available",
+        "copies": 4
+    },
+    {
+        "title": "Idiot",
+        "author": "Dostoevski",
+        "isbn": "45",
+        "status": "free",
+        "copies": 5
+    },
+    {
+        "title": "Process",
+        "author": "Kafki",
+        "isbn": "58",
+        "status": "free",
+        "copies": 6
+    },
+    {
+        "title": "Animal farm",
+        "author": "Orwel",
+        "isbn": "88",
+        "status": "free",
+        "copies": 9
+    }
+]

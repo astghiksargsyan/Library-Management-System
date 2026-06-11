@@ -1,0 +1,31 @@
+class User:
+    id_counter = 1
+    def __init__(self, name, username, password):
+        self.__id =  User.id_counter
+        User.id_counter +=1
+        self.__name = name
+        self.__username = username
+        self.__password = password
+        self.borrowedbook = []
+    @classmethod
+    def get_user_info_register(cls):
+        username = input("Enter a username: ")
+        name = input("Enter a name: ")
+        password = input("Set a password: ")
+        return cls(username, name, password)
+    def create_user(self):
+        tmp = {}
+        tmp["user_id"] = self.__id 
+        tmp["username"] = self.__username
+        tmp["name"] = self.__name
+        tmp["password"] = self.__password
+        tmp["borrowedbook"] = self.borrowedbook
+        return tmp
+    def __str__(self):   
+        return (
+            f"ID: {self.user_id}"
+            f"Name: {self.__name}\n"
+            f"Username: {self.__username}\n"
+            f"The books borrowed by {self.__name}: {self.__borrowedbook}\n"
+        )
+    
