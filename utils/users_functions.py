@@ -2,7 +2,7 @@ import json
 from models.user import User
 DATA_FILE_USERS = "data/users.json"
 
-def load_data():
+def load_users_data():
     """Load the users from the file"""
     try:
         with open(DATA_FILE_USERS, "r", encoding="utf-8") as f:
@@ -11,7 +11,7 @@ def load_data():
         return []
 def save_user(user):
     """Add registred user into file"""
-    users = load_data()
+    users = load_users_data()
     users.append(user.create_user())
     with open(DATA_FILE_USERS, "w", encoding="utf-8") as f:
         json.dump(users, f, indent=4)
@@ -19,7 +19,7 @@ def save_user(user):
 def login_function():
     username = input("Enter a username: ")
     password = input("Set a password: ")
-    users = load_data()
+    users = load_users_data()
     login_flag = False
     for user in users:
         if username == user["username"] and password == user["password"]:

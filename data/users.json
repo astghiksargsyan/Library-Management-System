@@ -12,5 +12,35 @@
         "name": "sophy",
         "password": "456",
         "borrowedbook": []
+    },
+    {
+        "user_id": 1,
+        "username": "Ani",
+        "name": "ani",
+        "password": "123",
+        "borrowedbook": []
+    },
+    {
+        "user_id": 1,
+        "username": "Ani",
+        "name": "ani",
+        "password": "123",
+        "borrowedbook": []
+    },
+    {
+        "user_id": 1,
+        "username": "Ani",
+        "name": "ani",
+        "password": "123",
+        "borrowedbook": [
+            {
+                "id": 1,
+                "title": "Little Prince",
+                "author": "Antoine de Saint-Exupry",
+                "isbn": "33",
+                "status": "BORROWED",
+                "copies": 3
+            }
+        ]
     }
 ]
