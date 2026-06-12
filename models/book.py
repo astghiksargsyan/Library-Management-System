@@ -1,10 +1,10 @@
 from utils.enums import BookStatus
 
 class Book:
-    book_id = 1
-    def __init__(self, title, author, isbn, status, copies):
-        book_id = Book.book_id
-        Book.book_id += 1
+    book_id_counter = 1
+    def __init__(self, title, author, isbn, copies):
+        self.__book_id_counter =  Book.book_id_counter
+        Book.book_id_counter +=1
         self.__title = title
         self.__author = author
         self.isbn = isbn
@@ -22,6 +22,7 @@ class Book:
             self.__copies = int(value)
         else:
             print("Please enter a correct vlaue for the copies field")
+
     @property
     def isbn(self):
         return self.__isbn
@@ -36,15 +37,15 @@ class Book:
         title = input("Enter a book name: ")
         author = input("Enter an author of the book:")
         isbn = input("Enter an isbn: ")
-        status = input("The status of the book: ")
         copies = input("The count of the copies: ")
-        return cls(title, author, isbn, status, copies)
+        return cls(title, author, isbn, copies)
     def create_single_book(self):
         tmp = {}
+        tmp["id"] = self.__book_id_counter
         tmp["title"] = self.__title
         tmp["author"] = self.__author
         tmp["isbn"] = self.__isbn
-        tmp["status"] = self.__status
+        tmp["status"] = self.__status.name
         tmp["copies"] = self.__copies
         return tmp
     def __str__(self):

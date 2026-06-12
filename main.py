@@ -1,5 +1,6 @@
 from models.book import Book
 from models.user import User
+from models.library_service import LibraryService
 from utils.books_functions import add_book
 from utils.books_functions import display_books
 from utils.books_functions import search_by_author_function
@@ -7,9 +8,12 @@ from utils.books_functions import search_by_book_name_function
 from utils.users_functions import add_user
 from utils.users_functions import login_function
 from utils.users_functions import view_account
+from utils.books_functions import load_data
+books = load_data()
 def return_book():
     print("Sucessfully returned")
 def borrow_book():
+    LibraryService.borrow_book(books)
     print("Sucessfully borrowed")
 init_option = (
     ("1", "Load available books", display_books),
@@ -36,5 +40,5 @@ def main():
             flag = True
     if not flag:
         print("Enter the valid option's value")
-if __name__ == "__main__":
-    main()
+
+main()

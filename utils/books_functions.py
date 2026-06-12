@@ -1,6 +1,6 @@
 import json
 from models.book import Book
-
+from utils.enums import BookStatus
 DATA_FILE = "data/books.json"
 
 def load_data():
@@ -10,7 +10,9 @@ def load_data():
             return json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         return []
-
+            
+    with open(DATA_FILE, "w", encoding="utf-8") as f:
+        json.dump(books, f, indent=4)
 def save_data(book):
     """Add single book into the book list"""
     books = load_data()
