@@ -20,7 +20,7 @@ def login_function():
     password = input("Set a password: ")
     users = load_users_data()
     login_flag = False
-    for user in users:
+    for user in users:  
         if username == user["username"] and password == user["password"]:
             print("Sucessfully Loged in")
             return user
@@ -41,10 +41,17 @@ def view_account():
         )
     else:
         print("Access denied.")
-def check_username():
-    pass
-
+def check_username(username):
+    users = load_users_data()
+    for user in users:
+        if user["username"] == username:
+            return True
+    return False
+    
 def add_user():
     users = load_users_data()
     user = User.get_user_info_register()
+    if check_username(user.create_user()["username"]):
+        print("Username already exists. Choose another!")
+        return
     save_user(users, user)

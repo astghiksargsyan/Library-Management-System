@@ -19,5 +19,12 @@
         "name": "Astghik",
         "password": "2525",
         "borrowedbook": []
+    },
+    {
+        "user_id": "d52decf5-012a-481b-a4db-dfbf818aeacb",
+        "username": "Valod",
+        "name": "valod",
+        "password": "789",
+        "borrowedbook": []
     }
 ]

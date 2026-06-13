@@ -34,7 +34,7 @@ def main():
     print("Choose available option: ")
     for id, name, _ in init_option:
         print(f"{id}. {name}")
-    start_option = input("Enter the 1,2,3,4,5,6,7: ")
+    start_option = input("Enter the 1,2,3,4,5,6,7,8,9: ")
     flag = False
     for num,_, funct in init_option:
         if start_option == num:
