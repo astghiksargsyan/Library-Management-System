@@ -9,9 +9,8 @@ def load_users_data():
             return json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         return []
-def save_user(user):
+def save_user(users, user):
     """Add registred user into file"""
-    users = load_users_data()
     users.append(user.create_user())
     with open(DATA_FILE_USERS, "w", encoding="utf-8") as f:
         json.dump(users, f, indent=4)
@@ -38,12 +37,14 @@ def view_account():
             f"ID: {current_user["user_id"]}"
             f"Name:{current_user["name"]}\n"
             f"Username: {current_user["username"]}\n"
-            f"The books borrowed by {current_user["name"]}: {current_user["borrowed_book"]}\n"
+            f"The books borrowed by {current_user["name"]}: {current_user["borrowedbook"]}\n"
         )
     else:
         print("Access denied.")
-
+def check_username():
+    pass
 
 def add_user():
+    users = load_users_data()
     user = User.get_user_info_register()
-    save_user(user)
+    save_user(users, user)

@@ -20,18 +20,6 @@ def save_data(book):
     with open(DATA_FILE, "w", encoding="utf-8") as f:
         json.dump(books, f, indent=4)
     print("Successfully added!")
-"""
-#make it useful
-def print_book_info():
-    books = load_data()
-    for book in books:
-        print("Book info:")
-        print(f"The title: {book['title']}")
-        print(f"Author: {book['author']}")
-        print(f"isbn: {book['isbn']}")
-        print(f"Status: {book['status']}")
-        print(f"Number of copies: {book['copies']}")
-        print("*" * 20)"""
 def display_books():
     """Function for displaying all available books"""
     print("All avialable books:")

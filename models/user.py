@@ -1,8 +1,8 @@
+import uuid
 class User:
-    id_counter = 1
+    username_list = []
     def __init__(self, name, username, password):
-        self.__id =  User.id_counter
-        User.id_counter +=1
+        self.id = str(uuid.uuid4())
         self.__name = name
         self.__username = username
         self.__password = password
@@ -12,10 +12,11 @@ class User:
         username = input("Enter a username: ")
         name = input("Enter a name: ")
         password = input("Set a password: ")
-        return cls(username, name, password)
+        User.username_list.append(username)
+        return cls(name, username, password)
     def create_user(self):
         tmp = {}
-        tmp["user_id"] = self.__id 
+        tmp["user_id"] = self.id 
         tmp["username"] = self.__username
         tmp["name"] = self.__name
         tmp["password"] = self.__password
@@ -23,9 +24,9 @@ class User:
         return tmp
     def __str__(self):   
         return (
-            f"ID: {self.user_id}"
+            f"ID: {self.id}"
             f"Name: {self.__name}\n"
             f"Username: {self.__username}\n"
-            f"The books borrowed by {self.__name}: {self.__borrowedbook}\n"
+            f"The books borrowed by {self.__name}: {self.borrowedbook}\n"
         )
     
