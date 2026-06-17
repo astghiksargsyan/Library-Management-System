@@ -18,7 +18,16 @@
         "username": "astx",
         "name": "Astghik",
         "password": "2525",
-        "borrowedbook": []
+        "borrowedbook": [
+            {
+                "id": 1,
+                "title": "The Trial",
+                "author": "Franz Kafka",
+                "isbn": "78",
+                "status": "BORROWED",
+                "copies": 1
+            }
+        ]
     },
     {
         "user_id": "d52decf5-012a-481b-a4db-dfbf818aeacb",

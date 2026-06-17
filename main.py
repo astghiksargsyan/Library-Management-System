@@ -13,10 +13,9 @@ from utils.users_functions import load_users_data
 books = load_data()
 users = load_users_data()
 def return_book():
-    print("Sucessfully returned")
+    LibraryService.return_book(books, users)
 def borrow_book():
     LibraryService.borrow_book(books, users)
-    print("Sucessfully borrowed")
 init_option = (
     ("1", "Load available books", display_books),
     ("2", "Add book", add_book),

@@ -1,4 +1,4 @@
-class BankAccount:
+"""class BankAccount:
     def __init__(self, owner, initial_balance=0):
         self.__owner = owner
         self.__balance = initial_balance
@@ -44,3 +44,54 @@ print(acc1.get_transactions()) # ["+1000", "+200"
 acc4 = BankAccount.from_transfer( "Karen", acc1, 300)
 print(acc4.get_balance()) # 300
 print(acc1.get_balance()) # 90
+"""
+class Calculator:
+    operation_count = 0
+    def __init__(self):
+        self.history = []
+    def __len__(self):
+        return len(self.history)
+    def add(self, a, b):
+        Calculator.operation_count += 1
+        result = a + b
+        self.history.append(f"{a} + {b} = {result}")
+        return result
+    def subtract(self, a, b):
+        Calculator.operation_count += 1
+        result = a - b
+        self.history.append(f"{a} - {b} = {result}")
+        return result
+    def multiply(self, a, b):
+        Calculator.operation_count += 1
+        result = a * b
+        self.history.append(f"{a} * {b} = {result}")
+        return result
+    def divide(self, a, b):
+        Calculator.operation_count += 1
+        result = a / b
+        self.history.append(f"{a} / {b} = {result}")
+        return result
+    def __str__(self):
+        return f"Calculator with {len(self.history)} operations"
+    @classmethod
+    def get_operation_count(cls):
+        return cls.operation_count
+    @staticmethod
+    def is_even(a):
+        return a % 2 == 0
+calc = Calculator()
+
+calc.add(5, 3)
+calc.subtract(10, 4)
+calc.multiply(2, 8)
+calc.divide(20, 5)
+
+print(calc)
+
+print(len(calc))
+
+print(calc.history)
+
+print(Calculator.get_operation_count())
+
+print(Calculator.is_even(10))
