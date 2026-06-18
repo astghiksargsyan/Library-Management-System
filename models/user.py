@@ -1,7 +1,6 @@
 import uuid
 
 class User:
-    users_count = 0
     def __init__(self, name, username, password):
         self.id = str(uuid.uuid4())
         self.__name = name
@@ -9,14 +8,15 @@ class User:
         self.__password = password
         self.borrowedbook = []
         self.history = []
-        User.users_count += 1
     @classmethod
     def get_user_info_register(cls):
+        """Collect user information from user input."""
         username = input("Enter a username: ")
         name = input("Enter a name: ")
         password = input("Set a password: ")
         return cls(name, username, password)
     def create_user(self):
+        """Create a dictionary representation of the user for JSON storage."""
         tmp = {}
         tmp["user_id"] = self.id 
         tmp["username"] = self.__username
@@ -25,12 +25,12 @@ class User:
         tmp["borrowedbook"] = self.borrowedbook
         tmp["history"] = self.history
         return tmp
-    @classmethod
-    def get_users_count(cls):
-        """ Function needs for createing report.txt file """
-        print("User_count form users",  cls.users_count)
-        return cls.users_count
-    def __str__(self):   
+    @property
+    def username(self):
+        """Return the username."""
+        return self.__username
+    def __str__(self):  
+        """Return a readable string representation of the user.""" 
         return (
             f"ID: {self.id}"
             f"Name: {self.__name}\n"

@@ -10,26 +10,26 @@ def load_users_data():
     except (FileNotFoundError, json.JSONDecodeError):
         return []
 def save_user(users, user):
-    """Add registred user into file"""
+    """Add a registered user to the JSON file."""
     users.append(user.create_user())
     with open(DATA_FILE_USERS, "w", encoding="utf-8") as f:
         json.dump(users, f, indent=4)
     print("Successfully added!")
 def login_function():
+    """username and password validation"""
     username = input("Enter a username: ")
     password = input("Set a password: ")
     users = load_users_data()
-    login_flag = False
-    for user in users:  
+    for user in users:
         if username == user["username"] and password == user["password"]:
-            print("Sucessfully Loged in")
+            print("Successfully logged in")
             return user
-            login_flag = True
-    if not login_flag:
-        print("Wrong login info")
+    print("Wrong login information")
     return None
+
 def view_account():
-    print("To veiw account you should first log in: ")
+    """View account information"""
+    print("To view your account, you should first log in:: ")
     current_user = login_function()
     if current_user:
         print("Account details:")
@@ -42,6 +42,7 @@ def view_account():
     else:
         print("Access denied.")
 def check_username(username):
+    """Check if a username already exists."""
     users = load_users_data()
     for user in users:
         if user["username"] == username:
@@ -49,9 +50,10 @@ def check_username(username):
     return False
     
 def add_user():
+    """Create a new user and save it to the JSON file."""
     users = load_users_data()
     user = User.get_user_info_register()
-    if check_username(user.create_user()["username"]):
+    if check_username(user.username):
         print("Username already exists. Choose another!")
         return
     save_user(users, user)
