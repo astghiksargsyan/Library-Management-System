@@ -4,14 +4,19 @@
         "username": "ani",
         "name": "Ani",
         "password": "123",
-        "borrowedbook": []
+        "borrowedbook": [],
+        "history": [
+            "borrowed book: Little Prince",
+            "returned book: Little Prince"
+        ]
     },
     {
         "user_id": "ae91cad2-730d-4717-a4cf-6335985392a7",
         "username": "armen",
         "name": "Armen",
         "password": "456",
-        "borrowedbook": []
+        "borrowedbook": [],
+        "history": []
     },
     {
         "user_id": "eecfe6f5-f2e0-4b9b-81c5-6c816787abbc",
@@ -21,19 +26,29 @@
         "borrowedbook": [
             {
                 "id": 1,
-                "title": "The Trial",
-                "author": "Franz Kafka",
-                "isbn": "78",
+                "title": "Little Prince",
+                "author": "Antoine de Saint-Exupry",
+                "isbn": "33",
                 "status": "BORROWED",
                 "copies": 1
             }
-        ]
+        ],
+        "history": []
     },
     {
         "user_id": "d52decf5-012a-481b-a4db-dfbf818aeacb",
         "username": "Valod",
         "name": "valod",
         "password": "789",
-        "borrowedbook": []
+        "borrowedbook": [],
+        "history": []
+    },
+    {
+        "user_id": "9874d425-9822-4f80-a6db-a049538fec09",
+        "username": "dominik",
+        "name": "Dominik",
+        "password": "888",
+        "borrowedbook": [],
+        "history": []
     }
 ]

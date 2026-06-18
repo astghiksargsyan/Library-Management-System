@@ -1,15 +1,15 @@
 from utils.enums import BookStatus
 
 class Book:
-    book_id_counter = 1
+    book_count = 1
+    status = BookStatus.AVAILABLE
     def __init__(self, title, author, isbn, copies):
         self.__book_id_counter =  Book.book_id_counter
-        Book.book_id_counter +=1
+        Book.book_count +=1
         self.__title = title
         self.__author = author
         self.isbn = isbn
-        self.__status = BookStatus.AVAILABLE
-        self.copies = copies
+        self.__copies = copies
         self.isBorrowed = False
         self.isReturned = False 
     #getters and setters for isbn
@@ -22,7 +22,6 @@ class Book:
             self.__copies = int(value)
         else:
             print("Please enter a correct vlaue for the copies field")
-
     @property
     def isbn(self):
         return self.__isbn
@@ -32,6 +31,9 @@ class Book:
             self.__isbn = value
         else:
             print("Please enter a correct vlaue for the isbn field")
+    def get_books_count(cls):
+        """ Function needs for createing report.txt file """
+        return cls.books_count
     @classmethod
     def get_book_info(cls):
         title = input("Enter a book name: ")
@@ -45,7 +47,7 @@ class Book:
         tmp["title"] = self.__title
         tmp["author"] = self.__author
         tmp["isbn"] = self.__isbn
-        tmp["status"] = self.__status.name
+        tmp["status"] = Book.status.name
         tmp["copies"] = self.__copies
         return tmp
     def __str__(self):
@@ -53,6 +55,6 @@ class Book:
             f"Title: {self.__title}\n"
             f"Author: {self.__author}\n"
             f"ISBN: {self.__isbn}\n"
-            f"Status: {self.__status}\n"
+            f"Status: {Book.status.name}\n"
             f"Copies: {self.__copies}"
         )

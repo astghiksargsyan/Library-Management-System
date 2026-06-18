@@ -4,7 +4,7 @@
         "title": "The Trial",
         "author": "Franz Kafka",
         "isbn": "78",
-        "status": "AVAILABLE",
+        "status": "BORROWED",
         "copies": 2
     },
     {
@@ -12,7 +12,15 @@
         "title": "Little Prince",
         "author": "Antoine de Saint-Exupry",
         "isbn": "33",
+        "status": "BORROWED",
+        "copies": 1
+    },
+    {
+        "id": 1,
+        "title": "Idiot",
+        "author": "Fyodor Dostoyevsky",
+        "isbn": "66",
         "status": "AVAILABLE",
-        "copies": 2
+        "copies": "4"
     }
 ]
