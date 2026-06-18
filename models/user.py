@@ -28,6 +28,7 @@ class User:
     @classmethod
     def get_users_count(cls):
         """ Function needs for createing report.txt file """
+        print("User_count form users",  cls.users_count)
         return cls.users_count
     def __str__(self):   
         return (

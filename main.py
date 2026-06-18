@@ -18,6 +18,9 @@ def return_book():
     LibraryService.return_book(books, users)
 def borrow_book():
     LibraryService.borrow_book(books, users)
+def create_statistic():
+    LibraryService.count_total_books()
+    LibraryService.count_total_users()
 
 init_option = (
     ("1", "Load available books", display_books),
@@ -28,7 +31,8 @@ init_option = (
     ("6", "Borrow book", borrow_book),
     ("7", "Return book", return_book),
     ("8", "Log in", login_function),
-    ("9", "Register", add_user)
+    ("9", "Register", add_user),
+    ("10", "Create statistic", create_statistic)
 )
 
 def main():
@@ -36,7 +40,7 @@ def main():
     print("Choose available option: ")
     for id, name, _ in init_option:
         print(f"{id}. {name}")
-    start_option = input("Enter the 1,2,3,4,5,6,7,8,9: ")
+    start_option = input("Enter the 1,2,3,4,5,6,7,8,9,10: ")
     flag = False
     for num,_, funct in init_option:
         if start_option == num:

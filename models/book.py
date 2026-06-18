@@ -1,11 +1,11 @@
 from utils.enums import BookStatus
 
 class Book:
-    book_count = 1
+    books_count = 0
     status = BookStatus.AVAILABLE
     def __init__(self, title, author, isbn, copies):
         self.__book_id_counter =  Book.book_id_counter
-        Book.book_count +=1
+        Book.books_count +=1
         self.__title = title
         self.__author = author
         self.isbn = isbn
@@ -31,9 +31,10 @@ class Book:
             self.__isbn = value
         else:
             print("Please enter a correct vlaue for the isbn field")
-    def get_books_count(cls):
+    @staticmethod
+    def get_books_count():
         """ Function needs for createing report.txt file """
-        return cls.books_count
+        return Book.books_count
     @classmethod
     def get_book_info(cls):
         title = input("Enter a book name: ")

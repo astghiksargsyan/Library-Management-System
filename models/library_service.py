@@ -1,29 +1,34 @@
 from models.book import Book
 from models.user import User
 import json
+import datetime
 from utils.books_functions import load_data
 from utils.users_functions import login_function
 from utils.enums import BookStatus
 BOOKS_FILE = "data/books.json"
 USERS_FILE = "data/users.json"
 class LibraryService:
-    total_books = 0
-    total_members = 0
     def __init__(self, BOOKS_FILE, USERS_FILE):
         self.BOOKS_FILE = BOOKS_FILE
         self.USERS_FILE = USERS_FILE
     @classmethod
     def count_total_books(cls):
-        count = Book.get_books_count()
-        LibraryService.save_to_report_file(f"Total count of books: {count}")
+        with open(BOOKS_FILE, "r") as f:
+            info = json.load(f)
+        LibraryService.total_books = len(info)
+        LibraryService.save_to_report_file(f"Total count of books: {LibraryService.total_books}")
     @classmethod
     def count_total_users(cls):
-        count = User.get_users_count()
-        LibraryService.save_to_report_file(f"Total count of members: {count}")
+        with open(USERS_FILE, "r") as f:
+            info = json.load(f)
+        LibraryService.total_members = len(info)
+        LibraryService.save_to_report_file(f"Total count of members: {LibraryService.total_members}")
     @staticmethod
     def save_to_report_file(data):
         with open("report.txt", 'a') as f:
-            f.write()
+            f.write(str(datetime.datetime.now()))
+            f.write(" Updated info in currnt time ")
+            f.write(data + "\n")
     @staticmethod
     def return_book(books, users):
         print("First Login to return book")

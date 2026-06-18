@@ -50,5 +50,13 @@
         "password": "888",
         "borrowedbook": [],
         "history": []
+    },
+    {
+        "user_id": "a0383f69-49ca-4a6e-a3ec-c97a108b8e85",
+        "username": "mary",
+        "name": "Mary",
+        "password": "555",
+        "borrowedbook": [],
+        "history": []
     }
 ]
