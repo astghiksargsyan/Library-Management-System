@@ -4,7 +4,7 @@
         "title": "The Trial",
         "author": "Franz Kafka",
         "isbn": "78",
-        "status": "BORROWED",
+        "status": "AVAILABLE",
         "copies": 2
     },
     {
@@ -13,7 +13,7 @@
         "author": "Antoine de Saint-Exupry",
         "isbn": "33",
         "status": "BORROWED",
-        "copies": 1
+        "copies": 0
     },
     {
         "id": 1,

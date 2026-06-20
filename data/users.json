@@ -4,10 +4,38 @@
         "username": "ani",
         "name": "Ani",
         "password": "123",
-        "borrowedbook": [],
+        "borrowedbook": [
+            {
+                "id": 1,
+                "title": "Little Prince",
+                "author": "Antoine de Saint-Exupry",
+                "isbn": "33",
+                "status": "AVAILABLE",
+                "copies": 0
+            },
+            {
+                "id": 1,
+                "title": "Little Prince",
+                "author": "Antoine de Saint-Exupry",
+                "isbn": "33",
+                "status": "AVAILABLE",
+                "copies": -1
+            },
+            {
+                "id": 1,
+                "title": "Little Prince",
+                "author": "Antoine de Saint-Exupry",
+                "isbn": "33",
+                "status": "BORROWED",
+                "copies": 0
+            }
+        ],
         "history": [
             "borrowed book: Little Prince",
-            "returned book: Little Prince"
+            "returned book: Little Prince",
+            "borrowed book: Little Prince",
+            "borrowed book: Little Prince",
+            "borrowed book: Little Prince"
         ]
     },
     {

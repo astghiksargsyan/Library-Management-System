@@ -21,8 +21,11 @@ def borrow_book():
 def create_statistic():
     LibraryService.count_total_books()
     LibraryService.count_total_users()
+def exit():
+    exit()
 
 init_option = (
+    ("0", "Exit", exit),
     ("1", "Load available books", display_books),
     ("2", "Add book", add_book),
     ("3", "Search by Author", search_by_author_function),
@@ -36,16 +39,17 @@ init_option = (
 )
 
 def main():
-    print("#"*20)
-    print("Choose available option: ")
-    for id, name, _ in init_option:
-        print(f"{id}. {name}")
-    start_option = input("Enter the 1,2,3,4,5,6,7,8,9,10: ")
-    flag = False
-    for num,_, funct in init_option:
-        if start_option == num:
-            funct()
-            flag = True
-    if not flag:
-        print("Enter the valid option's value")
+    #while True:
+        print("#"*20)
+        print("Choose available option: ")
+        for id, name, _ in init_option:
+            print(f"{id}. {name}")
+        start_option = input("Enter the 1,2,3,4,5,6,7,8,9,10: ")
+        flag = False
+        for num,_, funct in init_option:
+            if start_option == num:
+                funct()
+                flag = True
+        if not flag:
+            print("Enter the valid option's value")
 main()

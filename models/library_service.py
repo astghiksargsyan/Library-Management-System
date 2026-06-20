@@ -65,8 +65,9 @@ class LibraryService:
             book_input = input("Enter book name or isbn: ")
             for book in books:
                 if (book_input == book["title"] or book_input == book["isbn"]) and LibraryService.check_book_availability(book):
-                    LibraryService.change_book_status()
+                    
                     book["copies"] -= 1  
+                    LibraryService.change_book_status(book)
                     LibraryService.updat_books(books)
                     print("Successfully borrowed!")
                     current_user["borrowedbook"].append(book)
@@ -92,10 +93,15 @@ class LibraryService:
     def change_book_status(book):
         """Update the book status based on the number of available copies."""
         if book["copies"] <= 0:
-            Book.status = BookStatus.BORROWED.name 
+            book["status"] = BookStatus.BORROWED.name
+        else:
+            book["status"] = BookStatus.AVAILABLE.name
 
     @staticmethod
     def check_book_availability(book):
         """Check the status and the copies count"""
-        return book["copies"] > 0 or book["status"] == BookStatus.AVAILABLE.name
+        if book["copies"] > 0 or book["status"] == BookStatus.AVAILABLE.name:
+            return True
+        else:
+            print("The book is not available")
                 
